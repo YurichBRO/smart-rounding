@@ -1,4 +1,7 @@
-import { useRoundingFromChildOnAll } from "./smart-rounding.mjs";
+import { useRoundingFromChildOnAll, useRoundingFromParentOnAll } from "./smart-rounding.mjs";
 
-const selectorPairs = {"#outer": ".inner"};
-document.addEventListener("DOMContentLoaded", () => useRoundingFromChildOnAll(selectorPairs));
+const selectorPairsFromChild = {"#outer": ".inner"};
+document.addEventListener("DOMContentLoaded", () => useRoundingFromChildOnAll(selectorPairsFromChild));
+
+const selectorPairsFromParent = {"#outer1": ".rounded"};
+document.addEventListener("DOMContentLoaded", () => useRoundingFromParentOnAll(selectorPairsFromParent));

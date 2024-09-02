@@ -12,6 +12,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 #outer {
@@ -42,4 +44,26 @@ body {
 .inner {
     border-radius: 30px 20px;
     border: 15px solid gray;
+}
+
+#outer1 {
+    display: flex;
+    gap: 5px;
+    background-color: black;
+}
+
+.inner1 {
+    width: 200px;
+    padding: 10px;
+    background-color: darkgray;
+}
+
+#outer1 {
+    padding: 10px;
+    border-radius: 60px 30px;
+    border: 10px solid white;
+}
+
+.inner1 {
+    margin: 5px;
 }
