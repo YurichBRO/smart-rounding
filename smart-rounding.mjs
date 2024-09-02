@@ -80,20 +80,7 @@ function applyRounding(elem, rounding) {
     }
 }
 
-Object.defineProperty(Object.prototype, "clear", {
-    value: function() {
-        for (const key in this) {
-            delete this[key];
-        }
-    },
-    writable: false,
-    configurable: false,
-    enumerable: false,
-})
-
-export const selectorPairs = {};
-
-export function useRounding(target, source) {
+export function useOuterRounding(target, source) {
     const sourceRounding = getOuterRounding(source);
     const targetPaddings = getPaddings(target);
     const targetRounding = addOffsetToRounding(sourceRounding, targetPaddings);
@@ -103,11 +90,11 @@ export function useRounding(target, source) {
 export function useRoundingFromChild(elem, selector) {
     const source = elem.querySelector(selector);
     if (source === null) return false;
-    useRounding(elem, source);
+    useOuterRounding(elem, source);
     return true;
 }
 
-export function useRoundingOnAll() {
+export function useRoundingFromChildOnAll(selectorPairs) {
     for (const targetSelector in selectorPairs) {
         const targets = document.querySelectorAll(targetSelector);
         for (const target of targets) {
