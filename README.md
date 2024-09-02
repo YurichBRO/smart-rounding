@@ -34,6 +34,10 @@ There are also `useRounding` function that takes target and source directly
 */
 document.addEventListener("DOMContentLoaded", useRoundingOnAll);
 ```
+## Version syntax
+"[major].[minor (feature update)].[patch (bug fix, documentation update)]"git lo
+example: "1.0.1" - major version 1, no feature updates, 1 bug fix or/and 1 documentation update.
+if two git branches are in work, each branch tracks version separately, when they are merged, the version is updated to a max of the two versions.
 ## Notes
 - This program is not finished yet, there may be bugs we don't yet know about.
 - If you plan to use this code, do not use it in production. A better solution is to use it only while developing, then copying generated `border-radius` values to your CSS.
