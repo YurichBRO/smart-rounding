@@ -11,31 +11,21 @@ using `smart-rounding.mjs`:
 ![using `smart-rounding.mjs`](./readme/image-1.png)
 ## Usage
 ```js
-import { selectorPairs, useRoundingOnAll } from "./smart-rounding.mjs";
+import { useRoundingFromChildOnAll } from "./smart-rounding.mjs";
 
-/*
-Default pairs are `{"smart-rounding-target": "smart-rounding-source"}`.
-Pairs are present in the form of an object with keys as the target selector
-    (element to which rounding is applied) and values as the source selector 
-    (element from which target rounding is calculated).
-Clear the pairs with `selectorPairs.clear()`
-Add new pairs by setting object properties
-*/
-selectorPairs.clear();
-// Create new pairs
-selectorPairs['#outer'] = '.inner'
-
-/*
-Use all the pairs with `useRoundingOnAll` function.
-There are also `useRounding` function that takes target and source directly 
-    instead of selectors, and `useRoungdingFromChild` function that takes
-    target element and source selector, both of which are used by
-    `useRoundingOnAll`.
-*/
-document.addEventListener("DOMContentLoaded", useRoundingOnAll);
+// creating pairs of selectors for the code to use
+const selectorPairsFromChild = {"#outer1": ".inner1"};
+// for each parent with selector from keys of `selectorPairsFromChild` we apply
+// the rounding from child with selector from value of `selectorPairsFromChild`
+// of the corresponding key.
+// we do that when contents of page loaded, although its not mandatory
+document.addEventListener("DOMContentLoaded", () => useRoundingFromChildOnAll(selectorPairsFromChild));
+// quite the opposite logic is used when using `useRoundingFromParentOnAll` but
+// still, parent is the key, child is the value
 ```
 ## Version syntax
-"[major].[minor (feature update)].[patch (bug fix, documentation update)]"git lo
+"[major].[minor (feature update)].[patch (bug fix, documentation update)]"
+
 example: "1.0.1" - major version 1, no feature updates, 1 bug fix or/and 1 documentation update.
 if two git branches are in work, each branch tracks version separately, when they are merged, the version is updated to a max of the two versions.
 ## Notes
